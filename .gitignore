@@ -1,2 +1,5 @@
 node_modules/
 client/libs/
+static/libs/
+static/js/
+static/css/

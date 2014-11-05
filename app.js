@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//setup static files
+app.use(express.static(__dirname + '/static')); 
+
 //setup routes
 var router = express.Router();
 router.use(function (req, res, next) {
