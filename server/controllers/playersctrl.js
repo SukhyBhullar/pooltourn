@@ -1,6 +1,6 @@
 module.exports = function(router) {
 
-	var Player = require('../models/player.js')
+	var Player = require('../models/player.js');
 
 
 	router.route('/players')
