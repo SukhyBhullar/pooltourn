@@ -12,6 +12,10 @@ module.exports = function(grunt) {
 	// take all the js files and minify them into app.min.js
     uglify: {
       build: {
+        options: {
+          beautify: true,
+          mangle: false
+        },
         files: {
           'static/js/app.min.js': ['client/js/**/*.js', 'client/js/*.js']
         }
@@ -52,7 +56,11 @@ module.exports = function(grunt) {
 	// watch our node server for changes
     nodemon: {
       dev: {
-        script: 'app.js'
+        script: 'app.js',
+        options: {
+          args: ['dev'],
+          nodeArgs: ['--debug']
+        }
       }
     },
 
@@ -61,10 +69,11 @@ module.exports = function(grunt) {
       options: {
         logConcurrentOutput: true
       },
-      tasks: ['nodemon', 'watch']
+      tasks: ['nodemon', 'watch', 'node-inspector']
     },   
-
-
+    'node-inspector': {
+      dev: {}
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -74,6 +83,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-node-inspector');
 
   grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
 

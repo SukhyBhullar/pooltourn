@@ -12,7 +12,7 @@ $routeProvider
         .when('/players', {
             templateUrl: 'views/players/players.html',
             controller: 'PlayerController',
-            controlleras: 'players'
+            controllerAs: 'players'
         });
 
 }]);

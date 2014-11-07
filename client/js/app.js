@@ -3,7 +3,7 @@ angular.module('fpt', [
 	'ngRoute', 
 	'routes', 
 	'MainCtrl', 
-//	'PlayerFact',
+	'PlayerFactory',
 	'PlayerCtrl'
 ]);
 

@@ -1,3 +1,3 @@
-// angular.module('PlayerFact').factory('PlayerFactory', function() {
-//   //return $resource('/api/players/:id');
-// });
+angular.module('PlayerFactory', []).factory('PlayerFactory', function($resource) {
+	return $resource('/api/players/:id');
+});

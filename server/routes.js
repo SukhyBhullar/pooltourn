@@ -13,12 +13,18 @@ module.exports = function(app){
    //setup controllers
    require('./controllers/playersctrl.js')(router);
 
+   //base route goes to 
+   app.get('/', function(req, res) {
+        //res.sendFile('./static/index.html', {root: __dirname + ''});
+        
+        res.render('index');
+        
+   });
 
-
-   //All routes go to the index page, angular handles the rest
    app.get('*', function(req, res) {
         //res.sendFile('./static/index.html', {root: __dirname + ''});
-        res.render('index');
+        
+        res.redirect('/#' + req.originalUrl);
         
    });
 }

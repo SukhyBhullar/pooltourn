@@ -1,9 +1,5 @@
-angular.module('PlayerCtrl', []).controller('PlayerController', function() {
+angular.module('PlayerCtrl', []).controller('PlayerController', function(PlayerFactory) {
 
-	this.Players = function() {
-		//return PlayerFact.query();
-		return [{name : 1}];
-	};
-
+		this.all = PlayerFactory.query();
 
 });
