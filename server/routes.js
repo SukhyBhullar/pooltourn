@@ -11,7 +11,7 @@ module.exports = function(app){
 	app.use('/api/', router);
 
    //setup controllers
-   require('./controllers/playersctrl.js')(router);
+   require('./controllers/tournamentsctrl.js')(router);
 
    //base route goes to 
    app.get('/', function(req, res) {

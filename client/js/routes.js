@@ -9,10 +9,9 @@ $routeProvider
         })
 
         
-        .when('/players', {
-            templateUrl: 'views/players/players.html',
-            controller: 'PlayerController',
-            controllerAs: 'players'
+        .when('/tournaments', {
+            templateUrl: 'views/tournaments/tournaments.html',
+            controller: 'TournamentController'
         });
 
 }]);
