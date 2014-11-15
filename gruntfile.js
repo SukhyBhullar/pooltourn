@@ -64,16 +64,31 @@ module.exports = function(grunt) {
       }
     },
 
+    //node inspector for server side debug
+    'node-inspector': {
+      dev: {}
+    },
+
 	// run watch and nodemon at the same time
     concurrent: {
       options: {
         logConcurrentOutput: true
       },
       tasks: ['nodemon', 'watch', 'node-inspector']
-    },   
-    'node-inspector': {
-      dev: {}
+    }, 
+    
+    //run server side tests   
+    mochaTest: {
+        specs: {
+            options: {
+                ui: 'bdd',
+                reporter: 'spec',
+                require: './test/helpers/chai-spec'
+            },
+            src: ['test/server/**/*.js']
+        }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -84,7 +99,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-node-inspector');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
-  grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
+  grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'mochaTest', 'uglify', 'concurrent']);
+
+  grunt.registerTask('test', ['jshint', 'mochaTest']);
 
 };
