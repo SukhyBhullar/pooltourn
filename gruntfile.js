@@ -91,8 +91,7 @@ module.exports = function(grunt) {
 
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
-        background: true
+        configFile: 'karma.conf.js'
       }
     },
 
@@ -109,7 +108,7 @@ grunt.loadNpmTasks('grunt-node-inspector');
 grunt.loadNpmTasks('grunt-mocha-test');
 grunt.loadNpmTasks('grunt-karma');
 
-grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'mochaTest', 'uglify', 'concurrent']);
+grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'mochaTest', 'karma', 'uglify', 'concurrent']);
 
 grunt.registerTask('test', ['jshint', 'mochaTest', 'karma']);
 
