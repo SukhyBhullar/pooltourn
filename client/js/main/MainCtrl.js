@@ -1,7 +1,7 @@
 // public/js/controllers/MainCtrl.js
 angular.module('MainCtrl', []).controller('MainController', function($scope) {
 
-    $scope.test = 2;
+    $scope.test = 1;
 
 
 
