@@ -16,10 +16,10 @@ module.exports = function(router) {
 	.post(function(req, res){
 		  	  console.log(req.body);
 		var tournament = new Tournament();
-		tournament.name = req.body.name;
+		tournament.yearstring = req.body.yearstring;
 
-		if (tournament.name == undefined){
-			res.send("no name");
+		if (tournament.yearstring == undefined){
+			res.send("no yearstring");
 		}
 		else{
 			tournament.save(function(err, tournament) {
